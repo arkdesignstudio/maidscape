@@ -8,6 +8,7 @@
 
 nav ul a,
 nav .brand-logo {
+    z-index: 99;
   color: #fff;
 }
 
