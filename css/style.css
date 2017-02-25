@@ -11,6 +11,11 @@ nav .brand-logo {
   color: #fff;
 }
 
+a {
+    position:relative;
+    z-index:2;
+}
+
 p {
   line-height: 2rem;
 }
@@ -58,7 +63,6 @@ footer.page-footer {
 
 .big-banner {
     top: -65px;
-    z-index: -1;
 }
 
 .big-banner .big-header {
