@@ -11,6 +11,10 @@ nav .brand-logo {
   color: #fff;
 }
 
+body {
+	font-family: 'Lato', sans-serif;
+}
+
 a {
     position:relative;
     z-index:2;
@@ -25,7 +29,7 @@ p {
 }
 
 .parallax-container {
-  min-height: 500px;
+  min-height: 550px;
   line-height: 0;
   height: auto;
   color: rgba(255,255,255,.9);
@@ -62,11 +66,13 @@ footer.page-footer {
 }
 
 .big-banner {
-    top: -65px;
+  top: -65px;
+
 }
 
 .big-banner .big-header {
-    padding-top: 65px;
+  padding-top: 100px;
+	margin-bottom: -5px;
 }
 
 .z-depth-0 {
