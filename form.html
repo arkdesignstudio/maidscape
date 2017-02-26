@@ -186,11 +186,35 @@
 					</div>
 				</div>
 				
+<!--
 				<button class="btn waves-effect waves-light" type="submit" name="action">Next
 					<i class="material-icons right">send</i>
 				</button>
+-->
 
 			</form>
+			
+			<form action="/charge" method="post" id="payment-form" class="col s8">
+				<div class="form-row">
+					<label for="card-element">
+						Credit or debit card
+					</label>
+					<div id="card-element">
+						<!-- a Stripe Element will be inserted here. -->
+					</div>
+
+					<!-- Used to display Element errors -->
+					<div id="card-errors"></div>
+				</div>
+				
+				<br />
+				<br />
+
+				<button class="btn waves-effect waves-light" type="submit" name="action">Submit Payment
+					<i class="material-icons right">send</i>
+				</button>
+			</form>
+			
 		</div>
 	</div>
     
@@ -229,7 +253,9 @@
   <!--  Scripts-->
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
   <script src="js/materialize.js"></script>
+	<script src="https://js.stripe.com/v3/"></script>
   <script src="js/init.js"></script>
+	
 
   </body>
 </html>
