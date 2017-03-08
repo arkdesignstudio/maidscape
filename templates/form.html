@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 {% block content %}
-    
+
   <div id="index-banner" class="parallax-container big-banner">
     <div class="section no-pad-bot">
       <div class="container">
@@ -20,7 +20,7 @@
   </div>
 
 	<div class="container">
-		
+
 		<div class="row">
 			<form class="col s8">
 				<div class="center">
@@ -46,7 +46,7 @@
 				<div class="row">
 					<div class="input-field col s12">
 						<input id="phone" type="text" class="validate">
-						<label for="phone">Phone**</label> 
+						<label for="phone">Phone**</label>
 					</div>
 				</div>
 				<div class="row">
@@ -79,7 +79,7 @@
 						<label for="zip">Zip Code**</label>
 					</div>
 				</div>
-				
+
 				<div class="row">
 					<div class="input-field col s12">
 						<select>
@@ -93,7 +93,7 @@
 						<label>Number of Bedrooms</label>
 					</div>
 				</div>
-				
+
 				<div class="row">
 					<div class="input-field col s12">
 						<select>
@@ -107,7 +107,7 @@
 						<label>Number of Bathrooms</label>
 					</div>
 				</div>
-				
+
 				<div class="row">
 					<div class="input-field col s12">
 						<select multiple>
@@ -122,21 +122,21 @@
 						<label>Extra Services</label>
 					</div>
 				</div>
-				
+
 				<div class="row">
 					<div class="input-field col s12">
 						<textarea id="requests" class="materialize-textarea"></textarea>
 						<label for="requests">Special Requests / Instructions</label>
 					</div>
 				</div>
-				
+
 				<div class="row">
 					<div class="input-field col s12">
 						<input type="date" id="date" class="datepicker">
 						<label for="date">Date</label>
 					</div>
 				</div>
-				
+
 				<div class="row">
 					<div class="input-field col s12">
 						<select>
@@ -149,14 +149,14 @@
 						<label>Time</label>
 					</div>
 				</div>
-				
+
 				<div class="row">
 					<div class="input-field col s12">
 						<textarea id="referral" class="materialize-textarea"></textarea>
 						<label for="referral">How did you hear about us?</label>
 					</div>
 				</div>
-				
+
 <!--
 				<button class="btn waves-effect waves-light" type="submit" name="action">Next
 					<i class="material-icons right">send</i>
@@ -164,7 +164,7 @@
 -->
 
 			</form>
-			
+
 						<div class="col s4">
 							<div class="form-sidebar">
 								<h3 class="center teal-text"><i class="medium material-icons">schedule</i></h3>
@@ -205,7 +205,7 @@
 								</h5>
 							</div>
 			</div>
-			
+
 			<form action="/charge" method="post" id="payment-form" class="col s8">
 				<div class="form-row">
 					<label for="card-element">
@@ -218,7 +218,7 @@
 					<!-- Used to display Element errors -->
 					<div id="card-errors"></div>
 				</div>
-				
+
 				<br />
 				<br />
 
@@ -226,10 +226,10 @@
 					<i class="material-icons right">send</i>
 				</button>
 			</form>
-			
+
 
 			
 		</div>
 	</div>
-    
+
 {% endblock %}
