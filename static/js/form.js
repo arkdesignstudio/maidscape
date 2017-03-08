@@ -61,5 +61,16 @@ function stripeTokenHandler(token) {
   form.appendChild(hiddenInput);
 
   // Submit the form
+	alert(hiddenInput);
+	console.log(hiddenInput);
   form.submit();
+}
+
+// Inject payment total into div
+var total = '0.00';
+document.getElementById('total').innerHTML = '<h3 class="header teal-text light">Total:&nbsp; &nbsp; $' + total + '</h1>'
+
+function calculateTotalPrice() {
+	// get form data
+	var form = document.getElementById('payment-form')
 }

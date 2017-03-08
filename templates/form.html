@@ -22,7 +22,7 @@
 	<div class="container">
 
 		<div class="row">
-			<form class="col s8">
+			<form action="/charge" method="post" id="payment-form" class="col s8">
 				<div class="center">
 					<h3 class="header col s12 light">Book us now!</h3>
 					<h5 class="header col s12 light">Let's learn a little bit more about you and your needs.</h5>
@@ -157,56 +157,11 @@
 					</div>
 				</div>
 
-<!--
-				<button class="btn waves-effect waves-light" type="submit" name="action">Next
-					<i class="material-icons right">send</i>
-				</button>
--->
+        <div class="col s12">
+          <div id="total"></div>
+        </div>
 
-			</form>
 
-						<div class="col s4">
-							<div class="form-sidebar">
-								<h3 class="center teal-text"><i class="medium material-icons">schedule</i></h3>
-								<h5 class="center header light form-sidebar">
-									SAVES YOU TIME
-									<br />
-									Maidscape helps you live smarter, giving you time to focus on what’s most important.
-								</h5>
-								<h3 class="center teal-text"><i class="medium material-icons">verified_user</i></h3>
-								<h5 class="center header light form-sidebar">
-									SAFETY FIRST
-									<br />
-									We rigorously vet all of our Cleaners, who undergo identity checks as well as in-person interviews.
-								</h5>
-								<h3 class="center teal-text"><i class="medium material-icons">done_all</i></h3>
-								<h5 class="center header light form-sidebar">
-									ONLY THE BEST QUALITY
-									<br />
-									Our skilled professionals go above and beyond on every job. Cleaners are rated and reviewed after each task.
-								</h5>
-								<h3 class="center teal-text"><i class="medium material-icons">shopping_basket</i></h3>
-								<h5 class="center header light form-sidebar">
-									EASY TO GET HELP
-									<br />
-									We bring our own safe supplies. Let us know of any special requests and we’ll make it happen.
-								</h5>
-								<h3 class="center teal-text"><i class="medium material-icons">chat</i></h3>
-								<h5 class="center header light form-sidebar">
-									SEAMLESS COMMUNICATION
-									<br />
-									We make it easy for you to stay in touch with your cleaners.
-								</h5>
-								<h3 class="center teal-text"><i class="medium material-icons">payment</i></h3>
-								<h5 class="center header light form-sidebar">
-									CASH-FREE PAYMENT
-									<br />
-									Pay securely online only when the cleaning is complete.
-								</h5>
-							</div>
-			</div>
-
-			<form action="/charge" method="post" id="payment-form" class="col s8">
 				<div class="form-row">
 					<label for="card-element">
 						Credit or debit card
@@ -227,8 +182,51 @@
 				</button>
 			</form>
 
+			<div class="col s4">
+				<div class="form-sidebar">
+					<h3 class="center teal-text"><i class="medium material-icons">schedule</i></h3>
+					<h5 class="center header light form-sidebar">
+						SAVES YOU TIME
+						<br />
+						Maidscape helps you live smarter, giving you time to focus on what’s most important.
+					</h5>
+					<h3 class="center teal-text"><i class="medium material-icons">verified_user</i></h3>
+					<h5 class="center header light form-sidebar">
+						SAFETY FIRST
+						<br />
+						We rigorously vet all of our Cleaners, who undergo identity checks as well as in-person interviews.
+					</h5>
+					<h3 class="center teal-text"><i class="medium material-icons">done_all</i></h3>
+					<h5 class="center header light form-sidebar">
+						ONLY THE BEST QUALITY
+						<br />
+						Our skilled professionals go above and beyond on every job. Cleaners are rated and reviewed after each task.
+					</h5>
+					<h3 class="center teal-text"><i class="medium material-icons">shopping_basket</i></h3>
+					<h5 class="center header light form-sidebar">
+						EASY TO GET HELP
+						<br />
+						We bring our own safe supplies. Let us know of any special requests and we’ll make it happen.
+					</h5>
+					<h3 class="center teal-text"><i class="medium material-icons">chat</i></h3>
+					<h5 class="center header light form-sidebar">
+						SEAMLESS COMMUNICATION
+						<br />
+						We make it easy for you to stay in touch with your cleaners.
+					</h5>
+					<h3 class="center teal-text"><i class="medium material-icons">payment</i></h3>
+					<h5 class="center header light form-sidebar">
+						CASH-FREE PAYMENT
+						<br />
+						Pay securely online only when the cleaning is complete.
+					</h5>
+				</div>
+			</div>
 
-			
+
+
+
+
 		</div>
 	</div>
 
