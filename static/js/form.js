@@ -60,8 +60,6 @@ function stripeTokenHandler(token) {
   hiddenInput.setAttribute('value', token.id);
   form.appendChild(hiddenInput);
 
-	console.log(hiddenInput);
-	alert("form submitted!")
   // Submit the form
-  //form.submit();
+  form.submit();
 }
