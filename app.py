@@ -30,23 +30,41 @@ def pricing():
 
 @app.route('/charge', methods=['POST'])
 def charge():
-	
+
 	# Amount in cents
-	amount = 500
-	
+	amount = request.form['price']
+
+	# check if amount matches
+	bedrooms = int(request.form['bedrooms'])
+	bathrooms = int(request.form['bathrooms'])
+	check = check_price(bedrooms, bathrooms)
+	amount = amount if check == amount else check
+
+
 	customer = stripe.Customer.create(
 		email='customer@example.com',
 		source=request.form['stripeToken']
 	)
-	
+
 	charge = stripe.Charge.create(
 		customer=customer.id,
 		amount=amount,
 		currency='usd',
 		description='Test Charge'
 	)
-	
+
+	amount = str(amount/100) + '.00'
+
 	return render_template('charge.html', amount=amount, title="Charge")
+
+
+def check_price(bedrooms, bathrooms):
+	prices = 	[[14500, 16500, 18500, 20500, 22500],
+				 [16500, 18500, 20500, 22500, 24500],
+			 	 [19000, 21000, 23000, 25000, 27000],
+				 [22000, 24000, 26000, 28000, 30000],
+				 [25500, 27500, 29500, 31500, 33500]]
+	return prices[bedrooms][bathrooms]
 
 if __name__=='__main__':
 	app.run(debug=True, host='0.0.0.0', port=3000)
