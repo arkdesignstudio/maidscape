@@ -80,7 +80,7 @@ function createHiddenInput(name, value) {
 
 // Inject payment total into div
 var total = calculateTotalPrice()/100 + '.00';
-document.getElementById('total').innerHTML = '<h3 class="header teal-text light">Total:&nbsp; &nbsp; $' + total + '</h1>'
+document.getElementById('total').innerHTML = '<h3 class="right header teal-text light">Total:&nbsp; &nbsp; $' + total + '</h3>'
 
 // in cents
 function calculateTotalPrice() {
@@ -114,5 +114,8 @@ function calculateTotalPrice() {
 
 	// Calculate
 	return prices[bedrooms][bathrooms]*100;
+}
+
+function processForm(form) {
 
 }

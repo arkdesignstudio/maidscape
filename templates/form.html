@@ -29,6 +29,7 @@
 				</div>
 				<div class="row">
 					<div class="input-field col s6">
+            <i class="material-icons teal-text prefix">account_circle</i>
 						<input id="first_name" type="text" class="validate">
 						<label for="first_name">First Name*</label>
 					</div>
@@ -39,49 +40,48 @@
 				</div>
 				<div class="row">
 					<div class="input-field col s12">
+            <i class="material-icons teal-text prefix">email</i>
 						<input id="email" type="email" class="validate">
 						<label for="email">Email**</label>
 					</div>
 				</div>
 				<div class="row">
 					<div class="input-field col s12">
+            <i class="material-icons teal-text prefix">phone</i>
 						<input id="phone" type="text" class="validate">
 						<label for="phone">Phone**</label>
 					</div>
 				</div>
 				<div class="row">
 					<div class="input-field col s12">
+            <i class="material-icons teal-text prefix">location_on</i>
 						<input id="address" type="text" class="validate">
 						<label for="address">Address**</label>
 					</div>
 				</div>
 				<div class="row">
-					<div class="input-field col s12">
+					<div class="input-field col s6">
 						<input id="address2" type="text" class="validate">
 						<label for="address2">Apt/Suite #</label>
 					</div>
-				</div>
-				<div class="row">
-					<div class="input-field col s12">
+					<div class="input-field col s6">
 						<input id="city" type="text" class="validate">
 						<label for="city">City**</label>
 					</div>
 				</div>
 				<div class="row">
-					<div class="input-field col s12">
+					<div class="input-field col s6">
 						<input id="state" type="text" class="validate">
 						<label for="state">State**</label>
 					</div>
-				</div>
-				<div class="row">
-					<div class="input-field col s12">
+					<div class="input-field col s6">
 						<input id="zip" type="text" class="validate">
 						<label for="zip">Zip Code**</label>
 					</div>
 				</div>
 
 				<div class="row">
-					<div class="input-field col s12">
+					<div class="input-field col s6">
 						<select>
 							<option value="" disabled selected>Choose your option</option>
 							<option value="1">1</option>
@@ -92,10 +92,8 @@
 						</select>
 						<label>Number of Bedrooms</label>
 					</div>
-				</div>
 
-				<div class="row">
-					<div class="input-field col s12">
+					<div class="input-field col s6">
 						<select>
 							<option value="" disabled selected>Choose your option</option>
 							<option value="1">1</option>
@@ -131,14 +129,13 @@
 				</div>
 
 				<div class="row">
-					<div class="input-field col s12">
+					<div class="input-field col s6">
+            <i class="material-icons teal-text prefix">today</i>
 						<input type="date" id="date" class="datepicker">
 						<label for="date">Date</label>
 					</div>
-				</div>
 
-				<div class="row">
-					<div class="input-field col s12">
+					<div class="input-field col s6">
 						<select>
 							<option value="" disabled selected>Choose an available time</option>
 							<option value="8">8:00 AM</option>
@@ -162,11 +159,11 @@
         </div>
 
 
-				<div class="form-row">
+				<div class="form-row row">
 					<label for="card-element">
-						Credit or debit card
+						<h5 class="light">Pay using Stripe</h5>
 					</label>
-					<div id="card-element">
+					<div id="card-element" class="input-field col s12">
 						<!-- a Stripe Element will be inserted here. -->
 					</div>
 
@@ -177,7 +174,7 @@
 				<br />
 				<br />
 
-				<button class="btn waves-effect waves-light" type="submit" name="action">Submit Payment
+				<button class="btn waves-effect waves-light stretch" type="submit" name="action">Submit Payment
 					<i class="material-icons right">send</i>
 				</button>
 			</form>
