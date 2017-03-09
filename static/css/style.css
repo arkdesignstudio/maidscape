@@ -95,3 +95,8 @@ footer.page-footer {
   height: 60px;
   margin-bottom: 120px;
 }
+
+#badge {
+  padding-top: 30px;
+  margin-bottom: 30px;
+}

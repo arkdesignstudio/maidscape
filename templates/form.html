@@ -169,10 +169,13 @@
 
 					<!-- Used to display Element errors -->
 					<div id="card-errors"></div>
-				</div>
 
-				<br />
-				<br />
+          <div id="badge" class="col s12">
+            <a href="https://stripe.com" class="right">
+              <img src="{{ url_for('static', filename='img/powered_by_stripe.png') }}" />
+            </a>
+          </div>
+				</div>
 
 				<button class="btn waves-effect waves-light stretch" type="submit" name="action">Submit Payment
 					<i class="material-icons right">send</i>
