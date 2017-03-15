@@ -37,7 +37,8 @@ def charge():
 	# check if amount matches
 	bedrooms = int(request.form['bedrooms'])
 	bathrooms = int(request.form['bathrooms'])
-	check = check_price(bedrooms, bathrooms)
+	extra_services = map(int, request.form.getlist('extra'))
+	check = check_price(bedrooms, bathrooms, extra_services)
 	amount = amount if check == amount else check
 
 
@@ -58,13 +59,17 @@ def charge():
 	return render_template('charge.html', amount=amount, title="Charge")
 
 
-def check_price(bedrooms, bathrooms):
+def check_price(bedrooms, bathrooms, extra_services):
+	if bedrooms == 0 or bathrooms == 0:
+		# error
+		return 0;
+
 	prices = 	[[14500, 16500, 18500, 20500, 22500],
 				 [16500, 18500, 20500, 22500, 24500],
 			 	 [19000, 21000, 23000, 25000, 27000],
 				 [22000, 24000, 26000, 28000, 30000],
 				 [25500, 27500, 29500, 31500, 33500]]
-	return prices[bedrooms][bathrooms]
+	return prices[bedrooms - 1][bathrooms - 1] + sum(extra_services) * 100
 
 if __name__=='__main__':
 	app.run(debug=True, host='0.0.0.0', port=3000)

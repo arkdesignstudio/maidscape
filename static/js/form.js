@@ -1,5 +1,6 @@
 $(document).ready(function() {
 	$('select').material_select();
+	injectTotal(calculateTotalPrice(0, 0, [0]));
 });
 
 $('.datepicker').pickadate({
@@ -39,16 +40,30 @@ var form = document.getElementById('payment-form');
 form.addEventListener('submit', function(event) {
   event.preventDefault();
 
-  stripe.createToken(card).then(function(result) {
-    if (result.error) {
-      // Inform the user if there was an error
-      var errorElement = document.getElementById('card-errors');
-      errorElement.textContent = result.error.message;
-    } else {
-      // Send the token to your server
-      stripeTokenHandler(result.token, calculateTotalPrice());
-    }
-  });
+	// Temporarily see what we have saved in the form data
+	var bedrooms = document.getElementById('beds').value;
+	var bathrooms = document.getElementById('baths').value;
+	var extraServices = $("#extra").val();
+
+	var date = $('#date').val();
+	var time = $('#time').val();
+
+	if (!bedrooms || !bathrooms || !date || !time) {
+		// Inform user there was an error in calculating the total price
+		alert("Please make sure you fill in all required selections.");
+	} else {
+
+		stripe.createToken(card).then(function(result) {
+	    if (result.error) {
+	      // Inform the user if there was an error
+	      var errorElement = document.getElementById('card-errors');
+	      errorElement.textContent = result.error.message;
+	    } else {
+	      // Send the token to your server
+	      stripeTokenHandler(result.token, calculateTotalPrice(bedrooms, bathrooms, extraServices));
+	    }
+	  });
+	}
 });
 
 function stripeTokenHandler(token, price) {
@@ -61,8 +76,8 @@ function stripeTokenHandler(token, price) {
   form.appendChild(hiddenInput);
 
 	// Get elements TODO
-	form.appendChild(createHiddenInput('bedrooms', 3));
-	form.appendChild(createHiddenInput('bathrooms', 2));
+	form.appendChild(createHiddenInput('bedrooms', $('#beds').val()));
+	form.appendChild(createHiddenInput('bathrooms', $('#baths').val()));
 	form.appendChild(createHiddenInput('price', price));
 
 
@@ -79,43 +94,50 @@ function createHiddenInput(name, value) {
 }
 
 // Inject payment total into div
-var total = calculateTotalPrice()/100 + '.00';
-document.getElementById('total').innerHTML = '<h3 class="right header teal-text light">Total:&nbsp; &nbsp; $' + total + '</h3>'
+function injectTotal(total)  {
+	total = total/100 + '.00'
+	document.getElementById('total').innerHTML = '<h3 class="right header teal-text light">Total:&nbsp; &nbsp; $' + total + '</h3>'
+}
+
+$('#beds').on('change', function() {
+	injectTotal(calculateTotalPrice($(this).val(), $('#baths').val(), $('#extra').val()));
+})
+
+$('#baths').on('change', function() {
+	injectTotal(calculateTotalPrice($('#beds').val(), $(this).val(), $('#extra').val()));
+})
+
+$('#extra').on('change', function() {
+	injectTotal(calculateTotalPrice($('#beds').val(), $('#baths').val(), $(this).val()));
+})
 
 // in cents
-function calculateTotalPrice() {
-	// get form data
-	var form = document.getElementById('payment-form');
+function calculateTotalPrice(bedrooms, bathrooms, extraServices) {
 
 	// prices
-	var prices = new Array(5);
-	for (var i = 0; i < 5; i++) {
-		prices[i] = new Array(5);
+	var prices = new Array(6);
+	for (var i = 1; i < 6; i++) {
+		prices[i] = new Array(6);
 	}
-	prices[0][0] = 145;
-	prices[1][0] = 165;
-	prices[2][0] = 190;
-	prices[3][0] = 220;
-	prices[4][0] = 255;
-	for (var i = 0; i < 5; i++) {
-		for (var j = 1; j < 5; j++) {
+	prices[1][1] = 145;
+	prices[2][1] = 165;
+	prices[3][1] = 190;
+	prices[4][1] = 220;
+	prices[5][1] = 255;
+	for (var i = 1; i < 6; i++) {
+		for (var j = 2; j < 6; j++) {
 			prices[i][j] = prices[i][j - 1] + 20;
 		}
 	}
 
-	// TODO
-	// Get number of bedrooms
-	var bedrooms = 3;
 
-	// Get number of bathrooms
-	var bathrooms = 2;
-
-	// Get extra services
-
-	// Calculate
-	return prices[bedrooms][bathrooms]*100;
-}
-
-function processForm(form) {
-
+	if (!bedrooms || !bathrooms) {
+		return 0;
+	} else {
+		var extras = extraServices.map(function(x) {
+			return parseInt(x, 10);
+		})
+		var sum = extras.reduce(function(a, b) { return a + b; }, 0);
+		return (prices[bedrooms][bathrooms] + sum) * 100;
+	}
 }
